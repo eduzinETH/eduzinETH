@@ -14,4 +14,8 @@
    
 
 
-![Snake animation](https://raw.githubusercontent.com/eduzinETH/eduzinETH/output/github-contribution-grid-snake.svg?v=202608191750)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/eduzinETH/eduzinETH/output/github-contribution-grid-snake-dark.svg?v=202608191801" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/eduzinETH/eduzinETH/output/github-contribution-grid-snake.svg?v=202608191801" />
+  <img alt="Snake animation" src="https://raw.githubusercontent.com/eduzinETH/eduzinETH/output/github-contribution-grid-snake-dark.svg?v=202608191801" />
+</picture>
