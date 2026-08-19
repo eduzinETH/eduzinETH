@@ -15,4 +15,4 @@
    
 
 
-![Snake animation](https://github.com/eduzinETH/eduzinETH/blob/output/github-contribution-grid-snake.svg)
+![Snake animation](https://raw.githubusercontent.com/eduzinETH/eduzinETH/output/github-contribution-grid-snake.svg)
