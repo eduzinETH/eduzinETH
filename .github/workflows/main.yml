@@ -33,11 +33,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Generate profile dashboard
+      - name: Generate commit stats card
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_USER: ${{ github.repository_owner }}
-        run: python .github/scripts/generate_profile_dashboard.py
+        run: python .github/scripts/generate_commit_card.py
 
       - name: Publish profile visuals to output branch
         uses: peaceiris/actions-gh-pages@v4
