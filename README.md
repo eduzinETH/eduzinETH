@@ -1,9 +1,9 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/eduzinETH/eduzinETH/output/profile-dashboard.svg?v=20261001-clean" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/eduzinETH/eduzinETH/output/profile-dashboard.svg?v=20261001-clean" />
-  <img width="820" alt="Eduardo Rodrigues GitHub profile overview" src="https://raw.githubusercontent.com/eduzinETH/eduzinETH/output/profile-dashboard.svg?v=20261001-clean" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/eduzinETH/eduzinETH/output/profile-dashboard.svg?v=20261001-clean2" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/eduzinETH/eduzinETH/output/profile-dashboard.svg?v=20261001-clean2" />
+  <img width="820" alt="Eduardo Rodrigues GitHub profile overview" src="https://raw.githubusercontent.com/eduzinETH/eduzinETH/output/profile-dashboard.svg?v=20261001-clean2" />
 </picture>
 
 <br>
@@ -13,9 +13,9 @@
 <br>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/eduzinETH/eduzinETH/output/github-contribution-grid-snake-dark.svg?v=20261001-clean" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/eduzinETH/eduzinETH/output/github-contribution-grid-snake.svg?v=20261001-clean" />
-  <img width="760" alt="Contribution snake animation" src="https://raw.githubusercontent.com/eduzinETH/eduzinETH/output/github-contribution-grid-snake-dark.svg?v=20261001-clean" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/eduzinETH/eduzinETH/output/github-contribution-grid-snake-dark.svg?v=20261001-clean2" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/eduzinETH/eduzinETH/output/github-contribution-grid-snake.svg?v=20261001-clean2" />
+  <img width="760" alt="Contribution snake animation" src="https://raw.githubusercontent.com/eduzinETH/eduzinETH/output/github-contribution-grid-snake-dark.svg?v=20261001-clean2" />
 </picture>
 
 </div>

@@ -3,7 +3,6 @@ from __future__ import annotations
 import json
 import os
 import re
-from collections import Counter
 from datetime import datetime, timezone
 from html import escape
 from pathlib import Path
@@ -82,38 +81,41 @@ def fetch_profile(username: str, token: str) -> dict:
     return http_json(f"{GITHUB_API}/users/{username}", token)
 
 
-def fetch_language_totals(username: str, token: str) -> list[tuple[str, float]]:
-    totals: Counter[str] = Counter()
-    page = 1
+def fetch_top_languages(username: str) -> list[tuple[str, float]]:
+    params = {
+        "username": username,
+        "layout": "compact",
+        "langs_count": 5,
+        "hide_border": "true",
+    }
+    request = Request(
+        f"{STATS_API}/top-langs/?{urlencode(params)}",
+        headers={
+            "Accept": "image/svg+xml,text/plain;q=0.9,*/*;q=0.8",
+            "User-Agent": "eduzinETH-profile-readme",
+        },
+    )
+    with urlopen(request, timeout=30) as response:
+        svg = response.read().decode("utf-8")
 
-    while True:
-        repos = http_json(
-            f"{GITHUB_API}/users/{username}/repos?"
-            + urlencode({"per_page": 100, "page": page, "type": "owner", "sort": "updated"}),
-            token,
-        )
-        if not repos:
+    items = []
+    for raw in re.findall(
+        r'data-testid=["\\']lang-name["\\'][^>]*>\\s*([^<]+?)\\s*</text>',
+        svg,
+        flags=re.IGNORECASE | re.DOTALL,
+    ):
+        text = re.sub(r"\\s+", " ", raw).strip()
+        match = re.match(r"(.+?)\\s+([0-9]+(?:\\.[0-9]+)?)%$", text)
+        if not match:
+            continue
+        items.append((match.group(1).strip(), float(match.group(2))))
+        if len(items) == 5:
             break
 
-        for repo in repos:
-            if repo.get("fork"):
-                continue
-            languages = http_json(repo["languages_url"], token)
-            for language, byte_count in languages.items():
-                totals[language] += int(byte_count)
+    if not items:
+        raise RuntimeError("Could not parse languages from GitHub stats SVG")
 
-        if len(repos) < 100:
-            break
-        page += 1
-
-    grand_total = sum(totals.values())
-    if not grand_total:
-        return []
-
-    return [
-        (language, (byte_count / grand_total) * 100)
-        for language, byte_count in totals.most_common(5)
-    ]
+    return items
 
 
 def fmt(value: int) -> str:
@@ -238,7 +240,7 @@ def main() -> None:
     previous_year_commits = svg_metric(previous_stats, "commits")
 
     profile = fetch_profile(username, token)
-    languages = fetch_language_totals(username, token)
+    languages = fetch_top_languages(username)
 
     output = Path("dist/profile-dashboard.svg")
     output.parent.mkdir(parents=True, exist_ok=True)
