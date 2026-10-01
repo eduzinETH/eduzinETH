@@ -1,4 +1,4 @@
-name: Generate Snake Animation
+name: Generate Profile Visuals
 
 on:
   push:
@@ -8,6 +8,10 @@ on:
     - cron: "0 */12 * * *"
   workflow_dispatch:
 
+concurrency:
+  group: profile-visuals
+  cancel-in-progress: true
+
 jobs:
   generate:
     permissions:
@@ -16,6 +20,9 @@ jobs:
     timeout-minutes: 5
 
     steps:
+      - name: Checkout profile repository
+        uses: actions/checkout@v4
+
       - name: Generate contribution snake
         uses: Platane/snk/svg-only@v3
         with:
@@ -26,7 +33,13 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Publish snake to output branch
+      - name: Generate commit stats card
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_USER: ${{ github.repository_owner }}
+        run: python .github/scripts/generate_commit_card.py
+
+      - name: Publish profile visuals to output branch
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
