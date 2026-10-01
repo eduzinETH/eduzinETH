@@ -1,13 +1,17 @@
 ## Hi there 👋
+
 <div align="center">
-  <img height="150em" src="https://github-readme-stats-five-sandy-47.vercel.app/api?username=eduzinETH&show_icons=true&theme=merko&include_all_commits=true&count_private=true"/>
-  <img height="150em" src="https://github-readme-stats-five-sandy-47.vercel.app/api/top-langs/?username=eduzinETH&layout=compact&langs_count=7&theme=merko"/>
+  <img height="150em" src="https://github-readme-stats-five-sandy-47.vercel.app/api?username=eduzinETH&show_icons=true&theme=merko&include_all_commits=true&count_private=true" alt="Eduardo Rodrigues' GitHub stats"/>
+  <img height="150em" src="https://github-readme-stats-five-sandy-47.vercel.app/api/top-langs/?username=eduzinETH&layout=compact&langs_count=7&theme=merko" alt="Most used languages"/>
 </div>
-  
 
-  <img height="110" style="border-radius:50px;" alt="Baby Yoda GIF" src="https://media.discordapp.net/attachments/935026960902541342/1002182602456825936/baby-yoda-cute.gif">
-   
+<br>
 
+<div align="center">
+  <img height="180em" src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=eduzinETH&theme=github_dark&utcOffset=-3&title_color=ff9d00&text_color=f5f5f5&bg_color=0d1117&border_color=30363d&chart_color=ff9d00" alt="Commits by hour"/>
+</div>
+
+<br>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/eduzinETH/eduzinETH/output/github-contribution-grid-snake-dark.svg?v=202608191801" />
