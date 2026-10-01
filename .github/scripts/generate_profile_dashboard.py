@@ -100,12 +100,12 @@ def fetch_top_languages(username: str) -> list[tuple[str, float]]:
 
     items = []
     for raw in re.findall(
-        r'data-testid=["\\']lang-name["\\'][^>]*>\\s*([^<]+?)\\s*</text>',
+        r"""data-testid=["']lang-name["'][^>]*>\s*([^<]+?)\s*</text>""",
         svg,
         flags=re.IGNORECASE | re.DOTALL,
     ):
-        text = re.sub(r"\\s+", " ", raw).strip()
-        match = re.match(r"(.+?)\\s+([0-9]+(?:\\.[0-9]+)?)%$", text)
+        text = re.sub(r"\s+", " ", raw).strip()
+        match = re.match(r"(.+?)\s+([0-9]+(?:\.[0-9]+)?)%$", text)
         if not match:
             continue
         items.append((match.group(1).strip(), float(match.group(2))))
